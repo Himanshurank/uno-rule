@@ -1,0 +1,29 @@
+{
+  "name": "@uno-rule/uno",
+  "version": "0.0.1",
+  "description": "Uno game rules engine.",
+  "main": "./lib/index.js",
+  "types": "./lib/types/index.d.ts",
+  "type": "module",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "clean": "rimraf lib",
+    "build": "npm run clean && tsc",
+    "test": "node --experimental-vm-modules jest",
+    "lint": "eslint src/**/*.ts",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "prepack": "npm run build"
+  },
+  "keywords": [
+    "uno",
+    "card-game",
+    "rules-engine"
+  ],
+  "author": "Himanshu Rank",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}
