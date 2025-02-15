@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+
+# Build output
+lib/
+dist/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+.cursor
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Test coverage
+coverage/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# npm pack output
+*.tgz 
+
+/UNO-Web-Multi-Player-Game-Frontend/

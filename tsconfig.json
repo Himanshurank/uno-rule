@@ -1,18 +1,18 @@
 {
   "compilerOptions": {
-    "target": "es2015",
+    "target": "ES2022",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "outDir": "./lib",
     "declarationDir": "./lib/types",
-    "strict": true,
-    "esModuleInterop": true,
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "rootDir": "./src",
-    "skipLibCheck": true
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "tests", "lib"]
+  "include": ["src"],
+  "exclude": ["node_modules", "lib", "**/*.test.ts"]
 }
