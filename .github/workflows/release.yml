@@ -5,7 +5,7 @@ on:
 
 jobs:
   release:
-    name: Release v${{ steps.version.outputs.version }}
+    name: Release
     runs-on: ubuntu-latest
     permissions:
       contents: write # to create release
@@ -26,6 +26,8 @@ jobs:
           VERSION=$(node -p "require('./package.json').version")
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Current version: $VERSION"
+      - name: Update job name
+        run: echo "RELEASE_NAME=Release v${{ steps.version.outputs.version }}" >> $GITHUB_ENV
       - run: npm ci
       - run: npm run build
       - run: npm run test
