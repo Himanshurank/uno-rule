@@ -1,9 +1,11 @@
-name: Release v${{ github.ref_name }}
-# or for more detail:
-name: Release ${{ steps.version.outputs.version }}
+name: Release
+on:
+  push:
+    branches: [main]
 
 jobs:
   release:
+    name: Release v${{ steps.version.outputs.version }}
     runs-on: ubuntu-latest
     permissions:
       contents: write # to create release
