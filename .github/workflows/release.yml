@@ -1,7 +1,6 @@
-name: Release
-on:
-  push:
-    branches: [main]
+name: Release v${{ github.ref_name }}
+# or for more detail:
+name: Release ${{ steps.version.outputs.version }}
 
 jobs:
   release:
@@ -19,9 +18,12 @@ jobs:
         with:
           node-version: "20"
           registry-url: "https://registry.npmjs.org"
-      - name: Display current version
+      - name: Get version
+        id: version
         run: |
-          echo "Current version: $(node -p "require('./package.json').version")"
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Current version: $VERSION"
       - run: npm ci
       - run: npm run build
       - run: npm run test
