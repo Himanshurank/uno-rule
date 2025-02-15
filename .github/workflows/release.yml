@@ -6,11 +6,19 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # to create release
+      issues: write # to create issues
+      pull-requests: write # to create pull requests
+      id-token: write # to publish npm package
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
+          registry-url: "https://registry.npmjs.org"
       - run: npm ci
       - run: npm run build
       - run: npm run test
